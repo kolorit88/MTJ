@@ -17,9 +17,10 @@ public class Producer extends Thread{
         for (int i = 0; i < n; i++){
             Order anotherOrder = new Order(i,  warehouse.shoeTypeList.get(rand.nextInt(warehouse.shoeTypeList.size())),
                     rand.nextInt(1000));
-            warehouse.receiveOrder(anotherOrder);
+
             try {
-                Thread.sleep(100);
+                warehouse.receiveOrder(anotherOrder);
+                Thread.sleep(10);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
